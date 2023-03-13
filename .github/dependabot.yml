@@ -4,3 +4,49 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+
+
+  - package-ecosystem: nuget
+    directory: /core/src/main/dotnet/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tools/docker/demo
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tools/docker/minimal
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tools/helm/livy
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tools/helm/spark
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /tools/helm/zeppelin
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /website
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
