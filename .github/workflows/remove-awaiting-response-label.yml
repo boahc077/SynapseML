@@ -12,8 +12,13 @@ jobs:
       github.event.comment.author_association != 'OWNER' &&
       github.event.comment.author_association != 'COLLABORATOR'
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@1f99358870fe1c846a3ccba386cc2b2246836776 # v2.2.1
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+
       - name: Remove needs-reply label
-        uses: octokit/request-action@v2.x
+        uses: octokit/request-action@13eccba4c52465e24aa3dc438b3cb9937e8b17b0 # v2.x
         continue-on-error: true
         with:
           route: DELETE /repos/:repository/issues/:issue/labels/:label

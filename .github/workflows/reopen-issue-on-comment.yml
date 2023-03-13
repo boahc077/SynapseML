@@ -6,6 +6,9 @@ on:
       - created
 
 
+permissions:
+  contents: read
+
 jobs:
   reopen_issue:
     runs-on: ubuntu-latest
@@ -13,6 +16,11 @@ jobs:
       issues: write 
       statuses: write
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@1f99358870fe1c846a3ccba386cc2b2246836776 # v2.2.1
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+
       - name: Print context
         run: |
           echo "$GITHUB_CONTEXT"

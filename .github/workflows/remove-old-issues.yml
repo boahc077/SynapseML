@@ -8,8 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@1f99358870fe1c846a3ccba386cc2b2246836776 # v2.2.1
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+
       - name: Close old issues that need reply
-        uses: dwieeb/needs-reply@v2
+        uses: dwieeb/needs-reply@71e8d5144caa0d4a1e292348bfafa3866d08c855 # v2.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           issue-label: "awaiting response"

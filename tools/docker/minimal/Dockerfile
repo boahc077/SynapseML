@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/oss/mirror/docker.io/library/ubuntu:20.04
+FROM mcr.microsoft.com/oss/mirror/docker.io/library/ubuntu:20.04@sha256:fd92c36d3cb9b1d027c4d2a72c6bf0125da82425fc2ca37c414d4f010180dc19
 
 ARG SYNAPSEML_VERSION=0.11.0
 ARG DEBIAN_FRONTEND=noninteractive

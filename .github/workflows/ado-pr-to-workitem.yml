@@ -10,7 +10,12 @@ jobs:
   alert:
     runs-on: ubuntu-latest
     steps:
-    - uses: danhellem/github-actions-pr-to-work-item@master
+    - name: Harden Runner
+      uses: step-security/harden-runner@1f99358870fe1c846a3ccba386cc2b2246836776 # v2.2.1
+      with:
+        egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+
+    - uses: danhellem/github-actions-pr-to-work-item@f43c651eeb8cb434a03a9d6e76696ba444481f12 # master
       env:
         ado_token: '${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}'
         github_token: '${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}'

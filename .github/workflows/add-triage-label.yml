@@ -4,12 +4,20 @@ on:
     types:
       - reopened
       - opened
+permissions:
+  contents: read
+
 jobs:
   label_issues:
     runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@1f99358870fe1c846a3ccba386cc2b2246836776 # v2.2.1
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+
       - name: Label issues
         uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
