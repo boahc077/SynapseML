@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/openjdk/jdk:11-mariner
+FROM mcr.microsoft.com/openjdk/jdk:11-mariner@sha256:2ef2a4e8b6ce9a0a9517edbe37d2dc3f0670dfc151e6868ee59b5e5f52b84357
 LABEL maintainer="Dalitso Banda dalitsohb@gmail.com"
 
 # Get Spark from US Apache mirror.
